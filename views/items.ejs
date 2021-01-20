@@ -1,0 +1,37 @@
+<%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('./includes/navigation.ejs') %>
+
+            <main>
+                <% if (itemList.length > 0) { %>
+                    <h1>All the items in the Fridge</h1>
+                    <div class="grid">
+                        <% for (let item of itemList) { %>
+                            <ul>
+                                <li><%= item.name %> </li>
+                                <li><%= item.quantity %> </li>
+                                <li><%= item.exp_date %> </li>
+                                <li><%= item.category %> </li>
+                                <li><%= item.owner %> </li>
+                                
+                              </ul>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products Found!</h1>
+                        <% } %>
+
+            <div><a class="<%= path === '/add-item' ? 'active' : '' %>" href="/add-item"> Add Item </a></div>
+
+            <div><a class="<%= path === '/edit-item' ? 'active' : '' %>" href="/edit-item"> Edit Item </a>
+        </main>
+<%- include('./includes/end.ejs') %>
+
+
+
+
+
+

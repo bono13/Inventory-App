@@ -1,0 +1,34 @@
+<%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('./includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" method="POST">
+            <div class="form-control">
+                <label for="item-name">Item name</label>
+                <input type="text" name="title" id="title" >
+            </div>
+            <div class="form-control">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" id="quantity" >
+            </div>
+            <div class="form-control">
+                <label for="exp-date">Expiration Date</label>
+                <input type="text" name="exp-date" id="exp-date" >
+            </div>
+            <div class="form-control">
+                <label for="category">Category</label>
+                <input type="text" name="category" id="category" >
+            </div>
+            <div class="form-control">
+                <label for="owner">Owner</label>
+                <input type="text" name="owner" id="owner" >
+            </div>
+            <button class="btn" type="submit">Submit Change</button>
+        </form>
+    </main>
+<%- include('./includes/end.ejs') %>

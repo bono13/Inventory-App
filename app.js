@@ -4,6 +4,9 @@ const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
+require('./db/server');
+const categoriesRoutes = require('./routes/categories');
+const itemsRoutes = require('./routes/items');
 const app = express();
 
 const port = process.env.PORT || 4000;
@@ -16,9 +19,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-app.use('/', (req, res) => {
-	res.json('testing..');
+//GET HOMEPAGE
+app.get('/', (req, res) => {
+	res.redirect('/home');
 });
+
+app.get('/home', (req, res) => {
+	res.render('home', {
+		// pageMessage: 'Home Page',
+		pageTitle: 'Home',
+		path: '/home',
+	});
+});
+
+app.use(categoriesRoutes);
+app.use(itemsRoutes);
 
 app.listen(port, () => {
 	console.log(`Server up on port ${port}`);
