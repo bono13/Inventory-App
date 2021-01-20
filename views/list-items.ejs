@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>All items</title>
+		<link rel="stylesheet" href="/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+			integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<div class="ui grid">
+			<div class="row">
+				<div class="sixteen wide center aligned column"><h1>Fridge App</h1></div>
+			</div>
+			<div class="row">
+				<div class="three wide column">
+					<div class="ui secondary vertical menu">
+						<div class="item">
+							<div class="header">
+								<p><a href="/">Home</a></p>
+							</div>
+						</div>
+						<div class="item">
+							<div class="header"><p>Item</p></div>
+							<div class="menu">
+								<div class="item">
+									<p><a href="/items/">All items</a></p>
+									<p><a href="/add-item">Add new item</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="header"><p>Category</p></div>
+							<div class="menu">
+								<div class="item">
+									<p><a href="/categories">All Categories</a></p>
+									<p><a href="/category/create">Create Category</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="header"><p>Section</p></div>
+							<div class="menu">
+								<div class="item">
+									<p><a href="/sections">All Sections</a></p>
+									<p><a href="/section/create">Create Section</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="thirteen wide column">
+					<% if (itemList.length > 0) { %>
+					<h1>List of all items in the fridge</h1>
+					<% for (let item of itemList) { %>
+					<ul>
+						<li><a href="item/:id"><%= item.name %> stock(<%= item.quantity %>)</a></li>
+					</ul>
+					<% } %> <% } else { %>
+					<h1>No Items Found!</h1>
+					<% } %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="sixteen wide center aligned column">
+					<a class="item" href="https://github.com/bono13/"><i class="big github icon"></i></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

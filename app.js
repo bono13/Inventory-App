@@ -5,7 +5,6 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 require('./db/server');
-const categoriesRoutes = require('./routes/categories');
 const itemsRoutes = require('./routes/items');
 const app = express();
 
@@ -25,14 +24,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-	res.render('home', {
-		// pageMessage: 'Home Page',
-		pageTitle: 'Home',
-		path: '/home',
-	});
+	res.render('index');
 });
-
-app.use(categoriesRoutes);
+//ROUTES
 app.use(itemsRoutes);
 
 app.listen(port, () => {
