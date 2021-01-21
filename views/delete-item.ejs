@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><%= pageTitle %></title>
-		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
@@ -53,22 +53,19 @@
 					</div>
 				</div>
 				<div class="thirteen wide column">
-					<% if (itemList.length > 0) { %>
-					<h1>List of all items in the fridge</h1>
-					<% for (let item of itemList) { %>
-					<ul>
-						<li>
-							<a href="/items/<%= item._id %> "><%= item.name %> (stock: <%= item.quantity %>)</a>
-						</li>
-					</ul>
-					<% } %> <% } else { %>
-					<h1>No Items Found!</h1>
-					<% } %>
+					<h1>Delete Item</h1>
+					<form method="POST" action="/delete-item">
+						<p>Are you sure to delete <strong><%= item.name %> </strong>?</p>
+						<input type="hidden" value="<%= item._id %>" name="itemId" />
+						<button class="ui negative button">
+							Yes, I am sure. Please delete <%= item.name %> now!
+						</button>
+					</form>
 				</div>
 			</div>
 			<div class="row">
 				<div class="sixteen wide center aligned column">
-					<a class="item" href="https://github.com/bono13/"><i class="big github icon"></i></a>
+					<a class="item" href="https://github.com/bono13"><i class="big github icon"></i></a>
 				</div>
 			</div>
 		</div>

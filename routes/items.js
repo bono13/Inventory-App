@@ -9,6 +9,14 @@ router.get('/add-item', itemControllers.getAddItem);
 
 router.post('/add-item', itemControllers.postAddItem);
 
-router.get('/edit-item', itemControllers.getEditItem);
+router.get('/items/:id', itemControllers.getItemInfo);
+
+router.get('/edit-item/:id', itemControllers.getEditItem);
+
+router.post('/edit-item', itemControllers.postEditItem);
+
+router.get('/delete-item/:id', itemControllers.getDeleteItem);
+
+router.post('/delete-item', itemControllers.postDeleteItem);
 
 module.exports = router;
