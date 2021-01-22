@@ -6,11 +6,11 @@
 			<!-- sidebar -->
 			<%- include('./includes/sidebar.ejs') %> 
 				<div class="thirteen wide column">
-					<h1>Name: <%= item.name %></h1>
-					<p><strong>In Stock: </strong> <%= item.quantity %></p>
-					<p><strong>Expiry Date: </strong> <%= item.exp_date %></p>
+					<h1>Title: <%= item.title %></h1>
+					<p><strong>Copies: </strong> <%= item.quantity %></p>
+					<p><strong>Author: </strong> <%= item.author %></p>
 					<p><strong>Category: </strong><%= item.category %></p>
-					<p><strong>Owner: </strong><%= item.owner %></p>
+					<p><strong>ISBN: </strong><%= item.ISBN %></p>
 					<hr />
 					<p><a href="/edit-item/<%= item._id %>">Update Item</a></p>
 					<p><a href="/delete-item/<%= item._id %> ">Delete Item</a></p>

@@ -1,1 +1,1 @@
-# Inventory-App
+# Book Inventory App

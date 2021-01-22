@@ -8,11 +8,11 @@
 			
 				<div class="thirteen wide column">
 					<% if (itemList.length > 0) { %>
-					<h1>List of all items in the fridge</h1>
+					<h1>All Books in Inventory</h1>
 					<% for (let item of itemList) { %>
 					<ul>
 						<li>
-							<a href="/items/<%= item._id %> "><%= item.name %> (stock: <%= item.quantity %>)</a>
+							<a href="/items/<%= item._id %> "><%= item.title %> (stock: <%= item.quantity %>)</a>
 						</li>
 					</ul>
 					<% } %> <% } else { %>

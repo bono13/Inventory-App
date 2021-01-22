@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-	name: {
+	title: {
 		type: String,
 		required: true,
 	},
@@ -11,7 +11,7 @@ const itemSchema = new Schema({
 		type: Number,
 		required: true,
 	},
-	exp_date: {
+	author: {
 		type: String,
 		required: true,
 	},
@@ -19,10 +19,12 @@ const itemSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	owner: {
-		type: String,
+	ISBN: {
+		type: Number,
 		required: true,
 	},
+}, {
+	timestamps: true,
 });
 
 module.exports = mongoose.model('Item', itemSchema);
