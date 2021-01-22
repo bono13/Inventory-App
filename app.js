@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 require('./db/server');
 const itemsRoutes = require('./routes/items');
+const errorController = require('./controllers/error');
 const app = express();
 
 const port = process.env.PORT || 4000;
@@ -24,10 +25,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-	res.render('index');
+	res.render('index', {
+		pageTitle: 'Home'
+	});
 });
 //ROUTES
 app.use(itemsRoutes);
+
+app.use(errorController.get404);
 
 app.listen(port, () => {
 	console.log(`Server up on port ${port}`);
