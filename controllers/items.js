@@ -4,7 +4,7 @@ exports.getItems = async (req, res) => {
 	try {
 		const items = await Item.find({});
 
-		res.render('list-items', {
+		res.render('items/list-items', {
 			itemList: items,
 			pageTitle: 'All Items',
 		});
@@ -14,7 +14,7 @@ exports.getItems = async (req, res) => {
 };
 
 exports.getAddItem = (req, res) => {
-	res.render('add-item', {
+	res.render('items/add-item', {
 		pageTitle: 'Add Item',
 		editing: false,
 	});
@@ -38,7 +38,7 @@ exports.getItemInfo = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('item-info', {
+		res.render('items/item-info', {
 			pageTitle: 'Item Info',
 			item: item,
 		});
@@ -53,7 +53,7 @@ exports.getEditItem = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('edit-item', {
+		res.render('items/edit-item', {
 			editing: true,
 			item: item,
 			pageTitle: 'Update Item',
@@ -83,7 +83,7 @@ exports.getDeleteItem = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('delete-item', {
+		res.render('items/delete-item', {
 			item: item,
 			pageTitle: 'Delete Item',
 		});

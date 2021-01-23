@@ -1,0 +1,25 @@
+<%- include('../includes/header.ejs') %> 
+<!-- header -->
+	</head>
+	<body>
+		<div class="ui grid">
+			<!-- sidebar -->
+			<%- include('../includes/sidebar.ejs') %> 
+
+                <div class="thirteen wide column">
+                    <% if (itemList.length > 0) { %>
+                    <h1>All Categories</h1>
+                    <% for (let item of itemList) { %>
+                    <ul>
+                        <li>
+                            <%= item %>
+                        </li>
+                    </ul>
+                    <% } %> <% } else { %>
+                    <h1>No Items Found!</h1>
+                    <% } %>
+                </div>
+            </div>
+<!-- footer -->
+<%- include('../includes/footer.ejs') %> 
+
