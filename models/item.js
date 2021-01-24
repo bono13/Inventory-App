@@ -24,6 +24,10 @@ const itemSchema = new Schema(
 			type: Number,
 			required: true,
 		},
+		branch: {
+			type: String,
+			required: true,
+		}
 	},
 	{
 		timestamps: true,

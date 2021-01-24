@@ -13,7 +13,8 @@
                    
                     <ul>
                         <li>
-                            <a href="/categories/<%= item %>"><%= item %></a> 
+                            <!-- branches/branchName/language -->
+                            <a href="/branches/<%= branchName %> /<%= item %>"><%= item %></a> 
                         </li>
                     </ul>
                     <% } %> <% } else { %>
@@ -23,4 +24,3 @@
             </div>
 <!-- footer -->
 <%- include('../includes/footer.ejs') %> 
-

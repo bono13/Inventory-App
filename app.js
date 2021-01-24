@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 require('./db/server');
 const itemsRoutes = require('./routes/items');
 const categoriesRoutes = require('./routes/categories')
+const branchesRoutes = require('./routes/branches');
 const errorController = require('./controllers/error');
 const app = express();
 
@@ -33,6 +34,7 @@ app.get('/home', (req, res) => {
 //ROUTES
 app.use(itemsRoutes);
 app.use(categoriesRoutes);
+app.use(branchesRoutes);
 
 app.use(errorController.get404);
 

@@ -1,0 +1,24 @@
+<%- include('../includes/header.ejs') %> 
+<!-- header -->
+	</head>
+	<body>
+		<div class="ui grid">
+			<!-- sidebar -->
+			<%- include('../includes/sidebar.ejs') %> 
+			
+				<div class="thirteen wide column">
+					<% if (itemList.length > 0) { %>
+					<h1>All Books in This Category</h1>
+					<% for (let item of itemList) { %>
+					<ul>
+						<li>
+							<a href="/items/<%= item._id %> "><%= item.title %> (stock: <%= item.quantity %>)</a>
+						</li>
+					</ul>
+					<% } %> <% } else { %>
+					<h1>No Items Found!</h1>
+					<% } %>
+				</div>
+			</div>
+<!-- footer -->
+<%- include('../includes/footer.ejs') %> 

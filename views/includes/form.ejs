@@ -51,6 +51,15 @@
                         value="<% if (editing) { %><%= item.ISBN %><% } %>"
                     />
                 </div>
+                <div class="form-control">
+                    <label for="branch">Academy Branch Location</label>
+                    <input
+                        type="text"
+                        name="branch"
+                        id="branch"
+                        value="<% if (editing) { %><%= item.branch %><% } %>"
+                    />
+                </div>
 
                 <% if (editing) { %>
                 <input type="hidden" value="<%= item._id %>" name="itemId" />
