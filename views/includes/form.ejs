@@ -64,11 +64,20 @@
                 <% if (editing) { %>
                 <input type="hidden" value="<%= item._id %>" name="itemId" />
                 <% } %>
-
-                <button class="ui button" type="submit">
-                    <% if (editing) { %>Update Item<% } else { %>Add Item<% } %>
-                </button>
+                <div>
+                    <button class="ui button" type="submit">
+                        <% if (editing) { %>Update Item<% } else { %>Add Item<% } %>
+                    </button>
+                </div>
+                
             </form>
+            <% if (!validInput) { %>
+                <ul>
+                    <% for( let error of errors) { %>
+                       <li><%= error.msg %> </li>
+                    <% } %>
+                </ul>
+               <% } %>
         </div>
     </div>
 </div>

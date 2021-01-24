@@ -2,13 +2,12 @@ const { body, validationResult } = require('express-validator');
 
 const itemValidationRules = () => {
 	return [
-		// username must be an email
-		body('title').isLength({ min: 5, max: 50 }).withMessage('Input too long or too short'),
-		body('quantity').isLength({ min: 1, max: 300 }).withMessage('Value exceeds limit'),
-		body('author').isLength({ min: 5, max: 50 }).withMessage('Input too long or too short'),
-		body('category').isLength({ min: 3, max: 20 }).withMessage('Input too long or too short '),
-		body('ISBN').isLength({ min: 1, max: 13 }).withMessage('Must be between 1 and 13 chars long'),
-		body('branch').isLength({ min: 5, max: 50 }).withMessage('Input too long or too short'),
+		body('title').isLength({ min: 5, max: 50 }).withMessage('Title must be at least 5 characters long'),
+		body('quantity').isInt({ min: 1, max: 300 }).withMessage('Num of Copies must be at least 1'),
+		body('author').isLength({ min: 5, max: 50 }).withMessage('Author must be at least 5 characters long'),
+		body('category').isLength({ min: 3, max: 20 }).withMessage('Language input must be at least 3 characters long'),
+		body('ISBN').isLength({ min: 13, max: 13 }).withMessage('Input must be 13 digits long'),
+		body('branch').isLength({ min: 5, max: 50 }).withMessage('Branch name must be at least 5 characters long'),
 	];
 };
 
@@ -20,8 +19,17 @@ const validate = (req, res, next) => {
 	const extractedErrors = [];
 	errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
 
-	return res.status(422).json({
-		errors: extractedErrors,
+	// return res.status(422).json({
+	// 	errors: extractedErrors,
+	// });
+
+	// console.log(errors.array());
+
+	return res.render('item/add-item', {
+		pageTitle: 'Add Item',
+		editing: false,
+		validInput: false,
+		errors: errors.array(),
 	});
 };
 

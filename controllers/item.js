@@ -17,6 +17,7 @@ exports.getAddItem = (req, res) => {
 	res.render('item/add-item', {
 		pageTitle: 'Add Item',
 		editing: false,
+		validInput: true,
 	});
 };
 
@@ -47,7 +48,7 @@ exports.getItemInfo = async (req, res) => {
 };
 
 exports.getEditItem = async (req, res) => {
-	const itemId = req.params.id; // router parameters in this case our :id
+	const itemId = req.params.id; 
 
 	try {
 		const item = await Item.findById(itemId);
@@ -63,7 +64,7 @@ exports.getEditItem = async (req, res) => {
 };
 
 exports.postEditItem = async (req, res) => {
-	const itemId = req.body.itemId; // body from form data
+	const itemId = req.body.itemId; 
 
 	try {
 		await Item.findByIdAndUpdate(itemId, req.body, {
