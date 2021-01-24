@@ -8,15 +8,15 @@
 			
 				<div class="thirteen wide column">
 					<% if (itemList.length > 0) { %>
-					<h1>All Books in Inventory</h1>
+						<h1>All <%= bookLang %> Books </h1>
 					<% for (let item of itemList) { %>
-					<ul>
-						<li>
-							<a href="/items/<%= item._id %> "><%= item.title %> (stock: <%= item.quantity %>)</a>
-						</li>
-					</ul>
+						<ul>
+							<li>
+								<a href="/items/<%= item._id %> "><%= item.title %> (stock: <%= item.quantity %>)</a>
+							</li>
+						</ul>
 					<% } %> <% } else { %>
-					<h1>No Items Found!</h1>
+						<h1>No Items Found!</h1>
 					<% } %>
 				</div>
 			</div>

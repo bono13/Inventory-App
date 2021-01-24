@@ -27,17 +27,11 @@ const itemSchema = new Schema(
 		branch: {
 			type: String,
 			required: true,
-		}
+		},
 	},
 	{
 		timestamps: true,
 	}
 );
-
-// itemSchema.virtual('cats', {
-// 	ref: 'Cat',
-// 	localField: 'category',
-// 	foreignField: 'language',
-// })
 
 module.exports = mongoose.model('Item', itemSchema);

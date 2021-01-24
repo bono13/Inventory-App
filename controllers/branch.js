@@ -1,11 +1,10 @@
 const Item = require('../models/item');
 
 exports.getBranches = async (req, res) => {
-    const items = await Item.find().distinct('branch');
-    
-    // console.log(items);
+	const items = await Item.find().distinct('branch');
+
 	try {
-		res.render('branches/list-branches', {
+		res.render('branch/list-branches', {
 			itemList: items,
 			pageTitle: 'Branches',
 		});
@@ -16,12 +15,11 @@ exports.getBranches = async (req, res) => {
 
 exports.getBranchCategories = async (req, res) => {
 	const branchName = req.params.bname;
-	// console.log(bookLang);
-	try {
-        const items = await Item.find({ branch: branchName }).distinct('category');
-        
 
-		res.render('branches/list-categories', {
+	try {
+		const items = await Item.find({ branch: branchName }).distinct('category');
+
+		res.render('branch/list-categories', {
 			itemList: items,
 			branchName,
 			pageTitle: `${branchName} Books`,
@@ -31,17 +29,13 @@ exports.getBranchCategories = async (req, res) => {
 	}
 };
 
-
 exports.getBooksFromCategory = async (req, res) => {
 	const bookLang = req.params.lang;
-	
-	// console.log(bookLang);
+
 	try {
 		const items = await Item.find({ category: bookLang });
 
-		// console.log(items);
-
-		res.render('branches/list-books', {
+		res.render('branch/list-books', {
 			itemList: items,
 			bookLang,
 			pageTitle: `${bookLang} Books`,

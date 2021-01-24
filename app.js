@@ -5,9 +5,9 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
 require('./db/server');
-const itemsRoutes = require('./routes/items');
-const categoriesRoutes = require('./routes/categories')
-const branchesRoutes = require('./routes/branches');
+const itemRouter = require('./routers/item');
+const categoryRouter = require('./routers/category');
+const branchRouter = require('./routers/branch');
 const errorController = require('./controllers/error');
 const app = express();
 
@@ -28,13 +28,13 @@ app.get('/', (req, res) => {
 
 app.get('/home', (req, res) => {
 	res.render('index', {
-		pageTitle: 'Home'
+		pageTitle: 'Home',
 	});
 });
 //ROUTES
-app.use(itemsRoutes);
-app.use(categoriesRoutes);
-app.use(branchesRoutes);
+app.use(itemRouter);
+app.use(categoryRouter);
+app.use(branchRouter);
 
 app.use(errorController.get404);
 

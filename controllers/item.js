@@ -4,7 +4,7 @@ exports.getItems = async (req, res) => {
 	try {
 		const items = await Item.find({});
 
-		res.render('items/list-items', {
+		res.render('item/list-items', {
 			itemList: items,
 			pageTitle: 'All Items',
 		});
@@ -14,7 +14,7 @@ exports.getItems = async (req, res) => {
 };
 
 exports.getAddItem = (req, res) => {
-	res.render('items/add-item', {
+	res.render('item/add-item', {
 		pageTitle: 'Add Item',
 		editing: false,
 	});
@@ -25,7 +25,6 @@ exports.postAddItem = async (req, res) => {
 
 	try {
 		await item.save();
-		// console.log('Created Item', { item });
 		res.redirect('/items');
 	} catch (err) {
 		console.log(err);
@@ -38,7 +37,7 @@ exports.getItemInfo = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('items/item-info', {
+		res.render('item/item-info', {
 			pageTitle: 'Item Info',
 			item: item,
 		});
@@ -53,7 +52,7 @@ exports.getEditItem = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('items/edit-item', {
+		res.render('item/edit-item', {
 			editing: true,
 			item: item,
 			pageTitle: 'Update Item',
@@ -70,7 +69,6 @@ exports.postEditItem = async (req, res) => {
 		await Item.findByIdAndUpdate(itemId, req.body, {
 			new: true,
 		});
-		// console.log('ITEM UPDATED');
 		res.redirect('/items');
 	} catch (err) {
 		console.log(err);
@@ -83,7 +81,7 @@ exports.getDeleteItem = async (req, res) => {
 	try {
 		const item = await Item.findById(itemId);
 
-		res.render('items/delete-item', {
+		res.render('item/delete-item', {
 			item: item,
 			pageTitle: 'Delete Item',
 		});
@@ -97,8 +95,6 @@ exports.postDeleteItem = async (req, res) => {
 
 	try {
 		await Item.findByIdAndDelete(itemToDelete);
-
-		// console.log('ITEM DELETED');
 
 		res.redirect('/items');
 	} catch (err) {

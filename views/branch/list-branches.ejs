@@ -8,17 +8,16 @@
 
                 <div class="thirteen wide column">
                     <% if (itemList.length > 0) { %>
-                    <h1>All Categories</h1>
+                        <h1>All Branches</h1>
                     <% for (let item of itemList) { %>
-                   
-                    <ul>
-                        <li>
-                            <!-- branches/branchName/language -->
-                            <a href="/branches/<%= branchName %> /<%= item %>"><%= item %></a> 
-                        </li>
-                    </ul>
+                        <ul>
+                            <li>
+                                <!-- branches/branchName -->
+                                <a href="/branches/<%= item %>"><%= item %></a> 
+                            </li>
+                        </ul>
                     <% } %> <% } else { %>
-                    <h1>No Categories Found!</h1>
+                        <h1>No Branches Found!</h1>
                     <% } %>
                 </div>
             </div>
