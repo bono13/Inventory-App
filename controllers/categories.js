@@ -1,14 +1,7 @@
 const Item = require('../models/item');
 
 exports.getCategories = async (req, res) => {
-	// const items = await Item.find({}, 'category');
-
 	const items = await Item.find().distinct('category');
-	// function (err, categories) {
-	// console.log(categories);
-	// });
-	// console.log(check);
-
 	try {
 		res.render('categories/list-categories', {
 			itemList: items,
@@ -20,14 +13,14 @@ exports.getCategories = async (req, res) => {
 };
 
 exports.getBooksFromCategory = async (req, res) => {
-	const Spanish = 'Spanish';
-	const English = 'English';
+	const bookLang = req.params.lang;
+	// console.log(bookLang);
 	try {
-		const items = await Item.find({ category: English });
+		const items = await Item.find({ category: bookLang });
 
 		res.render('categories/books-in-category', {
 			itemList: items,
-			pageTitle: 'Categories',
+			pageTitle: `${bookLang} Books`,
 		});
 	} catch (err) {
 		console.log(err);
