@@ -1,4 +1,5 @@
 const express = require('express');
+const { itemValidationRules, validate } = require('../middleware/validator');
 const itemController = require('../controllers/item');
 
 const router = new express.Router();
@@ -7,7 +8,7 @@ router.get('/items', itemController.getItems);
 
 router.get('/add-item', itemController.getAddItem);
 
-router.post('/add-item', itemController.postAddItem);
+router.post('/add-item', itemValidationRules(), validate, itemController.postAddItem);
 
 router.get('/items/:id', itemController.getItemInfo);
 
