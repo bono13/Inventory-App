@@ -48,15 +48,16 @@ exports.getItemInfo = async (req, res) => {
 };
 
 exports.getEditItem = async (req, res) => {
-	const itemId = req.params.id; 
+	const itemId = req.params.id;
 
 	try {
 		const item = await Item.findById(itemId);
 
 		res.render('item/edit-item', {
 			editing: true,
-			item: item,
+			item,
 			pageTitle: 'Update Item',
+			validInput: true,
 		});
 	} catch (err) {
 		console.log(err);
@@ -64,7 +65,7 @@ exports.getEditItem = async (req, res) => {
 };
 
 exports.postEditItem = async (req, res) => {
-	const itemId = req.body.itemId; 
+	const itemId = req.body.itemId;
 
 	try {
 		await Item.findByIdAndUpdate(itemId, req.body, {
