@@ -3,8 +3,14 @@
 > See it live on [Heroku](https://lingua-mundi-inventory-app.herokuapp.com)
 
 ## Description
-
-### Objectives & Outcomes
+- Book Inventory App that keeps track of quantity of language textbooks in Lingua Mundi. 
+  Language Academy. The app records and displays: 
+  - All the books in the academy 
+  - Which Languages are available at each Branch 
+  - Which Books each branch has in inventory
+  - All Language Categories currently available in the Academy
+  
+  ### Objectives & Outcomes
 
 - Create an Book Inventory App using Node and Express.
 
