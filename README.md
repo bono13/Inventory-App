@@ -29,10 +29,10 @@
 ## ScreenShots
 
 #### Main Page
-[![all-items.png](https://i.postimg.cc/sgRhSrg5/all-items.png)](https://postimg.cc/ZCVntX3q)
+[![all-items.png](https://i.postimg.cc/hjLdwpsQ/all-items.png)](https://postimg.cc/njLr9K6n)
 
 #### Book Description
-[![book-info.png](https://i.postimg.cc/CKcmMNVB/book-info.png)](https://postimg.cc/8FrhtLcN)
+[![book-info.png](https://i.postimg.cc/dVZDp5tQ/book-info.png)](https://postimg.cc/Jsm1BckS)
 
 ## Development
 
