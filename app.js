@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 require('./db/server');
 const itemRouter = require('./routers/item');
@@ -13,6 +14,7 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 app.use(helmet());
+app.use(compression());
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
