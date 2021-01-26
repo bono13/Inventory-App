@@ -10,6 +10,8 @@
   - Which Books each branch has in inventory
   - All Language Categories currently available in the Academy
   
+ - User can Create, Update and Delete an book instance
+  
   ### Objectives & Outcomes
 
 - Create an Book Inventory App using Node and Express.
