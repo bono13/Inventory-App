@@ -14,7 +14,7 @@ const itemValidationRules = () => {
 		body('category')
 			.isLength({ min: 3, max: 20 })
 			.withMessage('Language input must be at least 3 characters long'),
-		body('ISBN').isLength({ min: 13, max: 13 }).withMessage('Input must be 13 digits long'),
+		body('ISBN').isLength({ max: 13 }).withMessage('ISBN cannot be more than 13 digits long'),
 		body('branch')
 			.isLength({ min: 5, max: 50 })
 			.withMessage('Branch name must be at least 5 characters long'),
