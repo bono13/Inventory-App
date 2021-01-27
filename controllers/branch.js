@@ -28,12 +28,19 @@ exports.getBranchCategories = async (req, res) => {
 		console.log(err);
 	}
 };
-
+/**
+ * Bug: this handler doesnt filter the books that are avaible only to a specific branch
+ */
 exports.getBooksFromCategory = async (req, res) => {
+	const branchName = req.params.bname;
 	const bookLang = req.params.lang;
 
+	console.log(bookLang, branchName);
+
 	try {
-		const items = await Item.find({ category: bookLang });
+		const items = await Item.find({ category: bookLang, branch: `${branchName}` });
+
+		console.log(items);
 
 		res.render('branch/list-books', {
 			itemList: items,
