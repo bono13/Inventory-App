@@ -1,8 +1,18 @@
 <h1>Book Inventory App</h1>
 
-## Description
+> See it live on [Heroku](https://lingua-mundi-inventory-app.herokuapp.com)
 
-### Objectives & Outcomes
+## Description
+- Book Inventory App that keeps track of quantity of language textbooks in Lingua Mundi. 
+  Language Academy. The app records and displays: 
+  - All the books in the academy 
+  - Which Languages are available at each Branch 
+  - Which Books each branch has in inventory
+  - All Language Categories currently available in the Academy
+  
+ - User can Create, Update and Delete an book instance
+  
+  ### Objectives & Outcomes
 
 - Create an Book Inventory App using Node and Express.
 
@@ -15,6 +25,14 @@
 - Apply some safety measures on deployment with [HelmetJS](https://helmetjs.github.io/)
 
 - Work with form validation and security with [validatorjs](https://github.com/validatorjs/validator.js) 
+
+## ScreenShots
+
+#### Main Page
+[![all-items.png](https://i.postimg.cc/hjLdwpsQ/all-items.png)](https://postimg.cc/njLr9K6n)
+
+#### Book Description
+[![book-info.png](https://i.postimg.cc/dVZDp5tQ/book-info.png)](https://postimg.cc/Jsm1BckS)
 
 ## Development
 
